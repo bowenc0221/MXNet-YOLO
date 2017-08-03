@@ -1,4 +1,8 @@
-# data_config
+# configuration files for darknet
+Two types for config files, one for loading data and one for setting up network.  
+[Data config](#data-config)  
+[Network config](#network-cfg)  
+# data config
 ### loading:  
 src/option_list.c::read_data_cfg(filename)  
 ### keywords:  
@@ -17,5 +21,5 @@ src/option_list.c::read_data_cfg(filename)
 "classes" - number of classes  
 "names" - file contains label names  
 
-# network_cfg
+# network cfg
 ### loading:
