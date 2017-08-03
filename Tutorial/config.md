@@ -16,3 +16,6 @@ src/option_list.c::read_data_cfg(filename)
 #### for demo:  
 "classes" - number of classes  
 "names" - file contains label names  
+
+# network_cfg
+### loading:
