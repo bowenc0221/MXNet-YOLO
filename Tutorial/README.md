@@ -6,6 +6,7 @@ This "tutorial" is created as a documentation for darknet framework. Most variab
 * [Architecture](##darknet-architecture) : locate code  
 * [YOLO](##run-yolo-v2) : run yolo v2 on darknet  
 * [flags](##optional-flags) : flags for running yolo v2  
+
 [Darknet cfg files](#cfg-files) : a tutorial on understanding darknet config files
 
 # Basic usage
