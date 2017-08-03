@@ -43,10 +43,47 @@ typedef struct list{
 } list;
 ```
 ## loading:
-train:  
+### Sample cfg file
+```
+[net]
+batch=64
+subdivisions=8
+height=416
+width=416
+channels=3
+momentum=0.9
+decay=0.0005
+angle=0
+saturation = 1.5
+exposure = 1.5
+hue=.1
+
+learning_rate=0.001
+burn_in=1000
+max_batches = 80200
+policy=steps
+steps=40000,60000
+scales=.1,.1
+
+[convolutional]
+batch_normalize=1
+filters=32
+size=3
+stride=1
+pad=1
+activation=leaky
+
+[maxpool]
+size=2
+stride=2
+...
+
+```
+### train:  
 src/network.c::load_network(cfg, weights, clear) = parse_network_cfg + load_weights  
-valid/test:  
+### valid/test:  
 /src/parser.c::parse_network_cfg(filename)  
 ## structure:
-[ ] defines a section  
+read_cfg returns a list of sections of the network.
+in the cfg file, [ ] defines a section containing list. e.g. [convolution] defines a section of convolution layer  
 
