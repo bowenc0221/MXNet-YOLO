@@ -7,7 +7,9 @@ This "tutorial" is created as a documentation for darknet framework. Most variab
 * [YOLO](##run-yolo-v2) : run yolo v2 on darknet  
 * [flags](##optional-flags) : flags for running yolo v2  
 
-[Darknet cfg files](#cfg-files) : a tutorial on understanding darknet config files
+[Darknet cfg files](#cfg-files) : a tutorial on understanding darknet config files  
+
+[Darknet data structure](#data-structure) : data structure for saving network params and layer outpus
 
 # Basic usage
 ## compile darknet
@@ -59,4 +61,6 @@ validation with flip (on the entire test set):
 12. ```-height int``` - for demo
 13. ```-fps int``` - for demo
 # cfg files
-see [config.md](https://github.com/bowenc0221/mxnet-yolo/blob/master/Tutorial/config.md)
+see [config.md](https://github.com/bowenc0221/mxnet-yolo/blob/master/Tutorial/config.md)  
+# data structure
+see [data_structure.md](https://github.com/bowenc0221/mxnet-yolo/blob/master/Tutorial/data_structure.md)
