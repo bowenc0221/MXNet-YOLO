@@ -1,3 +1,6 @@
 [submodule "darknet"]
 	path = darknet
 	url = https://github.com/pjreddie/darknet.git
+[submodule "darknet2mxnet/pytorch-caffe-darknet-convert"]
+	path = darknet2mxnet/pytorch-caffe-darknet-convert
+	url = https://github.com/marvis/pytorch-caffe-darknet-convert.git
