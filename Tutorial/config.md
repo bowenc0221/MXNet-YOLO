@@ -96,6 +96,8 @@ src/network.c::load_network(cfg, weights, clear) = parse_network_cfg + load_weig
 Read_cfg returns a list of sections of the network.  
 In the cfg file, [ ] defines a section containing list. e.g. [convolution] defines a section of convolution layer  
 Must start with [net] or [network]  
-options for net:  
+#### options for net:  
 batch, learning_rate, momentum, decay, subdividions, time_steps, notruth, adam (with: B1, B2, eps), height, width, channels, inputs, max_crop, min_crop, center, angle, aspect, saturation, exposure, hue, policy, burn_in, power, max_batches  
 policy= STEP(step, scale), STEPS(steps, scales), EXP(gamma), SIG(gamma, step), POLY or RANDOM()  
+
+net.batch = batch / subdividions to reduce gpu memory.
