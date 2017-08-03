@@ -8,7 +8,7 @@
 ```C
 typedef struct network{
     int n;  // number of layers
-    int batch;
+    int batch; // (batch/subdiv)
     size_t *seen; // number of images seen?
     int *t;
     float epoch;
@@ -25,7 +25,7 @@ typedef struct network{
     float power;
     int time_steps;
     int step;
-    int max_batches;
+    int max_batches; // max number of batches, cur_batch = seen/(batch*subdivision)
     float *scales;
     int   *steps;
     int num_steps;
@@ -36,13 +36,13 @@ typedef struct network{
     float B2;
     float eps;
 
-    int inputs;
+    int inputs; // h*w*c
     int outputs;
     int truths;
     int notruth;
-    int h, w, c;
-    int max_crop;
-    int min_crop;
+    int h, w, c; // height, width, channels
+    int max_crop; // default: w*2
+    int min_crop; // default w
     int center;
     float angle;
     float aspect;
