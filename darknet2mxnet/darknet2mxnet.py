@@ -1,10 +1,8 @@
 import sys
 import os
-sys.path.append('/data/home/bcheng/git_darknet/caffe/python')
-mxnet_path = os.path.join('/data/home/bcheng/git_point/mx_rfcn/external/mxnet', 'mxnet_point')
+mxnet_path = os.path.join('PATHTO/mxnet/python')
 sys.path.insert(0, mxnet_path)
 import mxnet as mx
-# import caffe
 import numpy as np
 from collections import OrderedDict
 from cfg import *
@@ -152,9 +150,8 @@ if __name__ == '__main__':
     import sys
     if len(sys.argv) != 4:
         print('Usage:')
-        print('python darknet2mxnet.py darknet.cfg darknet.weights mxnet.params')
+        print('python darknet2mxnet.py darknet.cfg darknet.weights mxnet_prefix')
         print('')
-        print('please add name field for each block to avoid generated name')
         exit()
 
     cfgfile = sys.argv[1]
