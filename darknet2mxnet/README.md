@@ -8,4 +8,6 @@ convert darknet .weights files to mxnet .params files
 4. modify mxnet_path
 
 # How to use
+'''
 python darknet2mxnet.py darknet.cfg darknet.weights mxnet.params
+'''
