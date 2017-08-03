@@ -1,15 +1,13 @@
 # Darknet framework documentation
 This "tutorial" is created as a documentation for darknet framework. Most variables do not have clear meaning.
 
-[Darknet basic usage](#Basic-usage) : a tutorial on how to use darknet for yolo (train/test/val)  
-* [Compile](##compile-darknet) : compile darknet  
-* [Architecture](##darknet-architecture) : locate code  
-* [YOLO](##run-yolo-v2) : run yolo v2 on darknet  
-* [flags](##optional-flags) : flags for running yolo v2  
-
-[Darknet cfg files](#cfg-files) : a tutorial on understanding darknet config files  
-
-[Darknet data structure](#data-structure) : data structure for saving network params and layer outpus
+* [Darknet basic usage](#Basic-usage) : a tutorial on how to use darknet for yolo (train/test/val)  
+..* [Compile](##compile-darknet) : compile darknet  
+..* [Architecture](##darknet-architecture) : locate code  
+..* [YOLO](##run-yolo-v2) : run yolo v2 on darknet  
+..* [flags](##optional-flags) : flags for running yolo v2  
+* [Darknet cfg files](#cfg-files) : a tutorial on understanding darknet config files  
+* [Darknet data structure](#data-structure) : data structure for saving network params and layer outpus
 
 # Basic usage
 ## compile darknet
