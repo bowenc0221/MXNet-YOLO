@@ -7,15 +7,13 @@ This "tutorial" is created as a documentation for darknet framework. Most variab
 * set GPU=1 if you want to use gpus
 * set CUDNN=1 if you want to use cudnn
 * set OPENCV=1 if you want to use opencv to process images
-2. "make -j8"
-3. try "./darknet". if it prints "usage: ./darknet <function>" then you are fine
+2. ```make -j8```
+3. try ```./darknet```. if it prints ```usage: ./darknet <function>``` then you are fine
 
 ## darknet architecture
-./darknet is from examples/darknet.c
-
-./darknet <function> will call other functions in examples/*.c
-  
-For example: ./darknet detector calls run_detector in examples/detector.c
+./darknet is from examples/darknet.c  
+./darknet <function> will call other functions in examples/*.c  
+For example: ```./darknet detector``` calls run_detector in examples/detector.c  
 
 ## run yolo v2
 train (on voc: darknet19 as backbone network):
