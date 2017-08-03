@@ -2,15 +2,16 @@
 This "tutorial" is created as a documentation for darknet framework. Most variables do not have clear meaning.
 
 * [Darknet basic usage](#Basic-usage) : a tutorial on how to use darknet for yolo (train/test/val)  
-  * [Compile](##compile-darknet) : compile darknet  
-  * [Architecture](##darknet-architecture) : locate code  
-  * [YOLO](##run-yolo-v2) : run yolo v2 on darknet  
-  * [flags](##optional-flags) : flags for running yolo v2  
+  * [Compile](##Compile-darknet) : compile darknet  
+  * [Architecture](##Darknet-architecture) : locate code  
+  * [Train](##Train) : workflow for training  
+  * [YOLO](##Run-YOLO-V2) : run yolo v2 on darknet  
+  * [flags](##Optional-flags) : flags for running yolo v2  
 * [Darknet cfg files](#cfg-files) : a tutorial on understanding darknet config files  
 * [Darknet data structure](#data-structure) : data structure for saving network params and layer outpus
 
 # Basic usage
-## compile darknet
+## Compile darknet
 1. modify Makefile
 * set GPU=1 if you want to use gpus
 * set CUDNN=1 if you want to use cudnn
@@ -18,12 +19,24 @@ This "tutorial" is created as a documentation for darknet framework. Most variab
 2. ```make -j8```
 3. try ```./darknet```. if it prints ```usage: ./darknet <function>``` then you are fine
 
-## darknet architecture
+## Darknet architecture
 ./darknet is from examples/darknet.c  
 ./darknet <function> will call other functions in examples/*.c  
 For example: ```./darknet detector``` calls run_detector in examples/detector.c  
 
-## run yolo v2
+## Train
+1. parse network  
+* parse config files and call make-xxx-layers to make corresponding layer according to network cfg files. Also print network structure to display.  
+2. load data (How does data loaded?)  
+* multiscale train needs resize network.  
+3. train network
+* update net.seen  
+* set net.train = 1  
+* forward/backward for subdivisions times  
+* update network  
+4. save weights
+
+## Run YOLO V2
 train (on voc: darknet19 as backbone network):
 ```
 ./darknet detector train cfg/voc.data cfg/yolo-voc.cfg darknet19_448.conv.23
@@ -40,7 +53,7 @@ validation with flip (on the entire test set):
 ```
 ./darknet detector valid2 cfg/voc.data cfg/yolo-voc.cfg backup/yolo-voc_final.weights
 ```
-## optional flags
+## Optional flags
 #### for ./darknet
 1. ```-nogpu``` - do not use gpu
 2. ```-i int``` - specify gpu index
