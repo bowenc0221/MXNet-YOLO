@@ -50,5 +50,5 @@ validation with flip (on the entire test set):
 11. ```-width int``` - for demo, resize image if >0
 12. ```-height int``` - for demo
 13. ```-fps int``` - for demo
-## cfg files
+# cfg files
 see config.md
