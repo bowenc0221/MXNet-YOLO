@@ -100,4 +100,4 @@ Must start with [net] or [network]
 batch, learning_rate, momentum, decay, subdividions, time_steps, notruth, adam (with: B1, B2, eps), height, width, channels, inputs, max_crop, min_crop, center, angle, aspect, saturation, exposure, hue, policy, burn_in, power, max_batches  
 policy= STEP(step, scale), STEPS(steps, scales), EXP(gamma), SIG(gamma, step), POLY or RANDOM()  
 
-net.batch = batch / subdividions to reduce gpu memory.
+**_net.batch = batch / subdividions to reduce gpu memory._**
