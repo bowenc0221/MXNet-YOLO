@@ -101,3 +101,5 @@ batch, learning_rate, momentum, decay, subdividions, time_steps, notruth, adam (
 policy= STEP(step, scale), STEPS(steps, scales), EXP(gamma), SIG(gamma, step), POLY or RANDOM()  
 
 **_net.batch = batch / subdividions to reduce gpu memory._**
+e.g. batch = 64, subdivisions = 8 then each gpu load 64/8 = 8 images and update params after 8 forward() backward()  
+
