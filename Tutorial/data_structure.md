@@ -13,7 +13,7 @@ typedef struct network{
     int *t;
     float epoch;
     int subdivisions;
-    layer *layers;
+    layer *layers; // array of layers, e.g. layers[0] return first layer
     float *output;
     learning_rate_policy policy;
 
@@ -88,8 +88,8 @@ struct layer{
     int batch;  // number of batch
     int forced;  
     int flipped;  
-    int inputs;  
-    int outputs;  
+    int inputs;  // number of elements in inputs: l.inputs = h*w*c;
+    int outputs;  // number of elements in outputs: l.outputs = l.out_h * l.out_w * l.out_c;
     int nweights;  
     int nbiases;  
     int extra;  
@@ -189,8 +189,8 @@ struct layer{
     float * weights;  // conv weights
     float * weight_updates;
 
-    float * delta;
-    float * output;
+    float * delta; // in_grad
+    float * output; // out_data
     float * squared;
     float * norms;
 
