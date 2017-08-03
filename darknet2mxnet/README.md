@@ -8,6 +8,9 @@ convert darknet .weights files to mxnet .params files
 4. modify mxnet_path
 
 # How to use
+python darknet2mxnet.py (darknet network .cfg file) (darknet .weights file) (mxnet params prefix)
+for example:
 ```
-python darknet2mxnet.py darknet.cfg darknet.weights mxnet.params
+python darknet2mxnet.py yolo-voc.cfg yolo-voc.weights yolo-voc
 ```
+and you will get yolo-voc-0000.params containing arg_params and aux_params dictionaries.
