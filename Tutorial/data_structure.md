@@ -1,14 +1,16 @@
 # Data structure for darknet
 
-[Network struct](#Network) : data structure for saving the entire network
-[Layer struct](#Layer) : data structure for saving each layer
+[Network struct](#Network) : data structure for saving the entire network  
+
+[Layer struct](#Layer) : data structure for saving each layer  
+
 # Network
 ## defination
 ```C
 typedef struct network{
     int n;  // number of layers
     int batch;
-    size_t *seen;
+    size_t *seen; // number of images seen?
     int *t;
     float epoch;
     int subdivisions;
@@ -71,10 +73,10 @@ typedef struct network{
 ```
 # Layer
 ## defination
-```
+```C
 struct layer{  
-    LAYER_TYPE type;  
-    ACTIVATION activation;  
+    LAYER_TYPE type;  // layer type
+    ACTIVATION activation;  // activation type
     COST_TYPE cost_type;  
     void (*forward)   (struct layer, struct network);  
     void (*backward)  (struct layer, struct network);  
@@ -82,9 +84,9 @@ struct layer{
     void (*forward_gpu)   (struct layer, struct network);  
     void (*backward_gpu)  (struct layer, struct network);  
     void (*update_gpu)    (struct layer, update_args);  
-    int batch_normalize;  
+    int batch_normalize;  // has batch normalization
     int shortcut;  
-    int batch;  
+    int batch;  // number of batch
     int forced;  
     int flipped;  
     int inputs;  
@@ -93,12 +95,12 @@ struct layer{
     int nbiases;  
     int extra;  
     int truths;  
-    int h,w,c;  
-    int out_h, out_w, out_c;  
-    int n;  
+    int h,w,c;  // input h,w,c
+    int out_h, out_w, out_c;  // output h,w,c
+    int n;  // number of filters
     int max_boxes;  
     int groups;  
-    int size;  
+    int size;  // filter size
     int side;  
     int stride;  
     int reverse;  
@@ -179,13 +181,13 @@ struct layer{
 
     float * binary_weights;  
 
-    float * biases;  
+    float * biases;  // bias for conv if no BN, other wise it is gamma for BN
     float * bias_updates;  
 
-    float * scales;  
+    float * scales;  // beta for BN
     float * scale_updates;
 
-    float * weights;
+    float * weights;  // conv weights
     float * weight_updates;
 
     float * delta;
@@ -200,8 +202,8 @@ struct layer{
     float * mean_delta;
     float * variance_delta;
 
-    float * rolling_mean;
-    float * rolling_variance;
+    float * rolling_mean;  // BN moving average
+    float * rolling_variance;  // BN moving variance
 
     float * x;
     float * x_norm;
@@ -279,93 +281,6 @@ struct layer{
     tree *softmax_tree;
 
     size_t workspace_size;
-
-#ifdef GPU
-    int *indexes_gpu;
-
-    float *z_gpu;
-    float *r_gpu;
-    float *h_gpu;
-
-    float *temp_gpu;
-    float *temp2_gpu;
-    float *temp3_gpu;
-
-    float *dh_gpu;
-    float *hh_gpu;
-    float *prev_cell_gpu;
-    float *cell_gpu;
-    float *f_gpu;
-    float *i_gpu;
-    float *g_gpu;
-    float *o_gpu;
-    float *c_gpu;
-    float *dc_gpu; 
-
-    float *m_gpu;
-    float *v_gpu;
-    float *bias_m_gpu;
-    float *scale_m_gpu;
-    float *bias_v_gpu;
-    float *scale_v_gpu;
-
-    float * combine_gpu;
-    float * combine_delta_gpu;
-
-    float * prev_state_gpu;
-    float * forgot_state_gpu;
-    float * forgot_delta_gpu;
-    float * state_gpu;
-    float * state_delta_gpu;
-    float * gate_gpu;
-    float * gate_delta_gpu;
-    float * save_gpu;
-    float * save_delta_gpu;
-    float * concat_gpu;
-    float * concat_delta_gpu;
-
-    float * binary_input_gpu;
-    float * binary_weights_gpu;
-
-    float * mean_gpu;
-    float * variance_gpu;
-
-    float * rolling_mean_gpu;
-    float * rolling_variance_gpu;
-
-    float * variance_delta_gpu;
-    float * mean_delta_gpu;
-
-    float * x_gpu;
-    float * x_norm_gpu;
-    float * weights_gpu;
-    float * weight_updates_gpu;
-    float * weight_change_gpu;
-
-    float * biases_gpu;
-    float * bias_updates_gpu;
-    float * bias_change_gpu;
-
-    float * scales_gpu;
-    float * scale_updates_gpu;
-    float * scale_change_gpu;
-
-    float * output_gpu;
-    float * delta_gpu;
-    float * rand_gpu;
-    float * squared_gpu;
-    float * norms_gpu;
-#ifdef CUDNN
-    cudnnTensorDescriptor_t srcTensorDesc, dstTensorDesc;
-    cudnnTensorDescriptor_t dsrcTensorDesc, ddstTensorDesc;
-    cudnnTensorDescriptor_t normTensorDesc;
-    cudnnFilterDescriptor_t weightDesc;
-    cudnnFilterDescriptor_t dweightDesc;
-    cudnnConvolutionDescriptor_t convDesc;
-    cudnnConvolutionFwdAlgo_t fw_algo;
-    cudnnConvolutionBwdDataAlgo_t bd_algo;
-    cudnnConvolutionBwdFilterAlgo_t bf_algo;
-#endif
-#endif
+// omit GPU and cudnn
 };
 ```
