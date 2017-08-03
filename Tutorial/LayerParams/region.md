@@ -8,13 +8,13 @@ log (0)
 sqrt (0)  
 __softmax__ (0) = 1  
 background (0)  
-max (30)  
+max (30) : max number of boxes  
 __jitter__ (.2) = .3  
 __rescore__ (0) = 1  
 __thresh__ (.5) = .6  
 classfix (0)  
 __absolute__ (0) = 1  
-__random__ (0) = 1  
+__random__ (0) = 1 : for multi scale training. every 10 epoch randomly choose a new size followinf multiples of 32 {320, ..., 608}. ATTENTION: if (get_current_batch(net)+200 > net.max_batches) dim = 608;  
 __coord_scale__ (1) = 1  
 __object_scale__ (1) = 5  
 __noobject_scale__ (1) = 1  
