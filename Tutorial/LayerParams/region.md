@@ -20,8 +20,8 @@ __object_scale__ (1) = 5
 __noobject_scale__ (1) = 1  
 mask_scale (1)  
 __class_scale__ (1) = 1  
-__bias_match__ (0) = 1 
-tree (0)  
+__bias_match__ (0) = 1  
+tree (0) : tree file for l.softmax_tree  
 map (0)  
 __anchors__ (0) = 1.3221, 1.73145, 3.19275, 4.00944, 5.05587, 8.09892, 9.47112, 4.84053, 11.2364, 10.0071 : str of anchors separated by comma (,)  
 ## Internals
