@@ -1,8 +1,7 @@
 # Data structure for darknet
 
-[Network struct](#Network) : data structure for saving the entire network  
-
-[Layer struct](#Layer) : data structure for saving each layer  
+* [Network struct](#Network) : data structure for saving the entire network  
+* [Layer struct](#Layer) : data structure for saving each layer  
 
 # Network
 ## defination
