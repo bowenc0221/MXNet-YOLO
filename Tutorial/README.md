@@ -1,7 +1,8 @@
 # Darknet framework documentation
 This "tutorial" is created as a documentation for darknet framework. Most variables do not have clear meaning.
 
-[Darknet basic usage](#Basic-usage) : a tutorial on how to use darknet for yolo (train/test/val)
+[Darknet basic usage](#Basic-usage) : a tutorial on how to use darknet for yolo (train/test/val)  
+* [Compile](##compile-darknet)
 [Darknet cfg files](#cfg-files) : a tutorial on understanding darknet config files
 
 # Basic usage
