@@ -1,9 +1,8 @@
 # configuration files for darknet
 Two types for config files, one for loading data and one for setting up network.  
 
-[Data config](#data-config)  
-
-[Network config](#network-cfg)  
+* [Data config](#data-config)  
+* [Network config](#network-cfg)  
 
 # data config
 ### loading:  
