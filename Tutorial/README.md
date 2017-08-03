@@ -34,6 +34,23 @@ validation with flip (on the entire test set):
 ```
 ./darknet detector valid2 cfg/voc.data cfg/yolo-voc.cfg backup/yolo-voc_final.weights
 ```
-
+## optional flags
+#### for ./darknet
+1. -nogpu - do not use gpu
+2. -i int - specify gpu index
+#### for detector
+1. -prefix str - prefix
+2. -thresh float - thresh for test
+3. -hier float - hier_thresh for test
+4. -c int - cam_index for demo
+5. -s int - frame_skip for demo
+6. -avg int - for demo
+7. -gpus str - string of gpu indexes seperated by comma. indicating how many gpus to use. e.g. -gpu 0,1,2,3 uses 4 gpus
+8. -out str - outfile for test, detection image
+9. -clear - for train, whether to clear network (set seen=0 I guess)
+10. -fullscreen - for demo
+11. -width int - for demo, resize image if >0
+12. -height int - for demo
+13. -fps int - for demo
 ## cfg files
 see config.md
