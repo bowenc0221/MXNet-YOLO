@@ -16,5 +16,5 @@ feature maps are saved to feature/
 params and features can be load in python using
 ```Python
 import numpy as np
-weights = np.fromfile(WEIGHTS_FILE, np.float32)
+weights = np.fromfile(WEIGHTS_FILE, np.float32).reshape((c_out, c_in, w, h))
 ```
