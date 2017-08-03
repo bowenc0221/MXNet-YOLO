@@ -1,9 +1,12 @@
 # Data structure for darknet
+
+[Network struct](#Network) : data structure for saving the entire network
+[Layer struct](#Layer) : data structure for saving each layer
 # Network
 ## defination
-```
+```C
 typedef struct network{
-    int n;
+    int n;  // number of layers
     int batch;
     size_t *seen;
     int *t;
