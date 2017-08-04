@@ -5,7 +5,7 @@ This "tutorial" is created as a documentation for darknet framework. Most variab
   * [Compile](##Compile-darknet) : compile darknet  
   * [Architecture](##Darknet-architecture) : locate code  
   * [Train](##Train) : workflow for training  
-    * [Data loading protocal](####2.-load-data) : data augmentation
+    * [Data loading protocal](####2-load-data) : data augmentation
   * [YOLO](##Run-YOLO-V2) : run yolo v2 on darknet  
   * [flags](##Optional-flags) : flags for running yolo v2  
 * [Darknet cfg files](#cfg-files) : a tutorial on understanding darknet config files  
@@ -28,7 +28,7 @@ For example: ```./darknet detector``` calls run_detector in examples/detector.c
 ## Train
 1. parse network
 * parse config files and call make-xxx-layers to make corresponding layer according to network cfg files. Also print network structure to display.  
-#### 2. load data
+#### 2 load data
 * For training:
   * DETECTION_DATA
     * inputs: n (num imgs = batch*ngpu), paths (image paths), m (path_list size), w (input w), h (input h), boxes (max_boxes), classes (classes 20), jitter, hue, saturation, exposure
