@@ -3,7 +3,7 @@
 #### black params are in yolo-voc.cfg
 __coords__ (4) = 4  
 __classes__ (20) = 20  
-__num__ (1) = 5  
+__num__ (1) = 5 : layer.n, number of anchors  
 log (0)  
 sqrt (0)  
 __softmax__ (0) = 1  
