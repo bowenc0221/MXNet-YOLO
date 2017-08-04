@@ -37,11 +37,12 @@ For example: ```./darknet detector``` calls run_detector in examples/detector.c
     * randomly place new image
     * random add distortion on hue, saturation, exposure
     * random flip (50%)  
-  * multiscale train needs resize network.
+  * multiscale train needs resize network and image every 10 batch
 * For testing:
   * LETTERBOX_DATA
     * load image using opencv (converted to rgb) in a.image
     * resize image in a.resized
+  * if flip: input has 6 channel, 3 for original and 3 for flip
 3. train network
 * update net.seen
 * set net.train = 1
