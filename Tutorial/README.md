@@ -28,7 +28,7 @@ For example: ```./darknet detector``` calls run_detector in examples/detector.c
 ## Train
 1. parse network
 * parse config files and call make-xxx-layers to make corresponding layer according to network cfg files. Also print network structure to display.  
-####2. load data
+#### 2. load data
 * For training:
   * DETECTION_DATA
     * inputs: n (num imgs = batch*ngpu), paths (image paths), m (path_list size), w (input w), h (input h), boxes (max_boxes), classes (classes 20), jitter, hue, saturation, exposure
