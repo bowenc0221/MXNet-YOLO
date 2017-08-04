@@ -25,16 +25,26 @@ This "tutorial" is created as a documentation for darknet framework. Most variab
 For example: ```./darknet detector``` calls run_detector in examples/detector.c  
 
 ## Train
-1. parse network  
-* parse config files and call make-xxx-layers to make corresponding layer according to network cfg files. Also print network structure to display.  
-2. load data (How does data loaded?)  
-* multiscale train needs resize network.  
+1. parse network
+* parse config files and call make-xxx-layers to make corresponding layer according to network cfg files. Also print network structure to display.
+2. load data
+* For training:
+  * DETECTION_DATA
+* For testing:
+  * LETTERBOX_DATA
+    * load image using opencv
+* multiscale train needs resize network.
 3. train network
-* update net.seen  
-* set net.train = 1  
-* forward/backward for subdivisions times  
-* update network  
+* update net.seen
+* set net.train = 1
+* forward/backward for subdivisions times
+* update network
 4. save weights
+* in weight files, the first 4 elemets are:
+  * int major = 0
+  * int minor = 2
+  * int revision = 0
+  * size_t net.seen
 
 ## Run YOLO V2
 train (on voc: darknet19 as backbone network):
