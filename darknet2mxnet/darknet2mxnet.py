@@ -1,8 +1,10 @@
 import sys
 import os
-mxnet_path = os.path.join('PATHTO/mxnet/python')
+sys.path.append('/data/home/bcheng/git_darknet/caffe/python')
+mxnet_path = os.path.join('/data/home/bcheng/git_point/mx_rfcn/external/mxnet', 'mxnet_point')
 sys.path.insert(0, mxnet_path)
 import mxnet as mx
+# import caffe
 import numpy as np
 from collections import OrderedDict
 from cfg import *
@@ -13,12 +15,14 @@ def darknet2mxnet(cfgfile, weightfile, prefix):
 
     num_input = []
     fp = open(weightfile, 'rb')
-    header = np.fromfile(fp, count=4, dtype=np.int32)
+    # header = np.fromfile(fp, count=4, dtype=np.int32)
+    header = np.fromfile(fp, count=3, dtype=np.int32)
+    seen = np.fromfile(fp, count=1, dtype=np.int64)
     buf = np.fromfile(fp, dtype=np.float32)
     fp.close()
 
     print buf.shape[0]
-    start = 1
+    start = 0
     layer_id = 1  # track conv layer
     arg_params = dict()
     aux_params = dict()
@@ -150,8 +154,9 @@ if __name__ == '__main__':
     import sys
     if len(sys.argv) != 4:
         print('Usage:')
-        print('python darknet2mxnet.py darknet.cfg darknet.weights mxnet_prefix')
+        print('python darknet2mxnet.py darknet.cfg darknet.weights mxnet.params')
         print('')
+        print('please add name field for each block to avoid generated name')
         exit()
 
     cfgfile = sys.argv[1]
