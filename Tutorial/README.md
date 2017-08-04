@@ -30,10 +30,18 @@ For example: ```./darknet detector``` calls run_detector in examples/detector.c
 2. load data
 * For training:
   * DETECTION_DATA
+    * inputs: n (num imgs = batch*ngpu), paths (image paths), m (path_list size), w (input w), h (input h), boxes (max_boxes), classes (classes 20), jitter, hue, saturation, exposure
+    * get a random image
+    * jitter: change aspect ratio
+    * randomly change scale by uniform(.25, 2)
+    * randomly place new image
+    * random add distortion on hue, saturation, exposure
+    * random flip (50%)  
+  * multiscale train needs resize network.
 * For testing:
   * LETTERBOX_DATA
-    * load image using opencv
-* multiscale train needs resize network.
+    * load image using opencv (converted to rgb) in a.image
+    * resize image in a.resized
 3. train network
 * update net.seen
 * set net.train = 1
