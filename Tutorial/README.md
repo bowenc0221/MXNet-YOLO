@@ -27,7 +27,7 @@ For example: ```./darknet detector``` calls run_detector in examples/detector.c
 
 ## Train
 1. parse network
-* parse config files and call make-xxx-layers to make corresponding layer according to network cfg files. Also print network structure to display.
+* parse config files and call make-xxx-layers to make corresponding layer according to network cfg files. Also print network structure to display.  
 ####2. load data
 * For training:
   * DETECTION_DATA
